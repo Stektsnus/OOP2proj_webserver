@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.3",
+    "node": "^17.3.0",
+    "nodemon": "^2.0.15"
+  },
+  "name": "oop2proj_webserver",
+  "description": "",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon -L app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stektsnus/OOP2proj_webserver.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stektsnus/OOP2proj_webserver/issues"
+  },
+  "homepage": "https://github.com/Stektsnus/OOP2proj_webserver#readme"
+}
