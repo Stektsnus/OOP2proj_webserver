@@ -3,6 +3,11 @@ const mongoose = require("mongoose");
 
 const app = new express();
 
+mongoose
+    .connect(`mongodb://sebastian:password@database:27017/?authSource=admin`)
+    .then(() => console.log("Successfully connected to DB"))
+    .catch(() => console.log(e));
+
 const userRoutes = require("./routes/userRoutes.js")
 
 app.get("/", (req, res) => {

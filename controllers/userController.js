@@ -5,10 +5,10 @@ exports.signUp = async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
     try {
-        const hashPassword = bcrypt.hash(password, 12);
+        // const hashPassword = bcrypt.hash(password, 12);
         const newUser = await User.create({
             username,
-            hashPassword
+            password
         });
         res.status(200).json({
             status: "Success",
@@ -18,7 +18,8 @@ exports.signUp = async (req, res) => {
             }
         });
     } catch (e) {
-        console.log(e);
+        console.log(req.body);
+        //console.log(e);
         res.status(400).json({
             status: "Failed",
             message: `Could not create user ${username}`
@@ -60,5 +61,16 @@ exports.logIn = async (req, res) => {
 }
 
 exports.show = async (req, res) => {
-    res.send("<h1>Testing user/show route</h1>")
+    const users = await User.find();
+    if(users.length > 0) {
+        res.status(200).json({
+            status: "Found users",
+            body: users
+        })
+    } else {
+        res.status(400).json({
+            status: "No user entries in database",
+            message: "Could not find any users"
+        });
+    }
 }
